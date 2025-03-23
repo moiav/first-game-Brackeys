@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://iapm1j472uo2"]
+[gd_scene load_steps=21 format=3 uid="uid://iapm1j472uo2"]
 
+[ext_resource type="PackedScene" uid="uid://dthre76jvw6cv" path="res://scenes/hud.tscn" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://52okibt5gyy7" path="res://scenes/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dfl4l0gslchqp" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c8h5cqgeehsgr" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -8,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bcr4u12yfvadr" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://ojxik7vql576" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://b6acxqyc08vuw" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
-font = ExtResource("7_u5sy4")
-font_size = 8
+[ext_resource type="PackedScene" uid="uid://bglg5rruq2v0o" path="res://scenes/glassbottle.tscn" id="7_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bmosxs3yk5q3a" path="res://scenes/spawner.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dpt1p5vpvl853" path="res://scenes/ponton.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -229,6 +229,10 @@ shadow_color = Color(0.00351917, 0.00351917, 0.00351917, 0)
 
 [node name="Game" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("1_0tnpc")]
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_gee14")
@@ -238,18 +242,10 @@ position = Vector2(-1, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -2)
-zoom = Vector2(4, 4)
+zoom = Vector2(3.5, 3.5)
 limit_bottom = 95
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="score" type="Label" parent="Player/Camera2D"]
-offset_left = -138.0
-offset_top = -77.0
-offset_right = -90.0
-offset_bottom = -66.0
-text = "SCORE : "
-label_settings = SubResource("LabelSettings_0tnpc")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, 0)
@@ -348,3 +344,17 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="slime" parent="." instance=ExtResource("6_p57ef")]
 position = Vector2(131, -43)
+
+[node name="spawner" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-76, 32)
+
+[node name="ponton" parent="." instance=ExtResource("11_kvpfn")]
+
+[node name="ponton2" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(-56, 2)
+
+[node name="ponton3" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(-28, -2)
+
+[node name="glassbottle" parent="." instance=ExtResource("7_vtaks")]
+position = Vector2(-173, 81)

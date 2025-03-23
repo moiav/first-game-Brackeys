@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpt1p5vpvl853"]
+
+[ext_resource type="Texture2D" uid="uid://pdyaa2g8o3ow" path="res://assets/sprites/ponton.png" id="1_dpxpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
+size = Vector2(28, 20)
+
+[node name="ponton" type="AnimatableBody2D"]
+z_index = 2
+
+[node name="Ponton" type="Sprite2D" parent="."]
+position = Vector2(-158, 74)
+texture = ExtResource("1_dpxpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-158, 75)
+shape = SubResource("RectangleShape2D_kvpfn")

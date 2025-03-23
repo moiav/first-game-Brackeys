@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2rjv32vlecn1"]
+
+[ext_resource type="Texture2D" uid="uid://ldq60s33ole6" path="res://assets/sprites/piece.png" id="1_37p78"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coinTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 16.0
+offset_right = 78.0
+offset_bottom = 70.0
+texture = ExtResource("1_37p78")
+stretch_mode = 4
+
+[node name="coinlabel" type="Label" parent="coinTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.288
+anchor_top = -1.056
+anchor_right = -1.288
+anchor_bottom = -1.056
+offset_left = 124.976
+offset_top = 73.024
+offset_right = 164.976
+offset_bottom = 96.024
+text = "test"
