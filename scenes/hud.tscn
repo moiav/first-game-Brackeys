@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dthre76jvw6cv"]
+[gd_scene load_steps=7 format=3 uid="uid://dthre76jvw6cv"]
 
 [ext_resource type="Script" uid="uid://bvf4wujsqs3yj" path="res://scenes/hud.gd" id="1_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://ldq60s33ole6" path="res://assets/sprites/piece.png" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://b6acxqyc08vuw" path="res://assets/fonts/PixelOperator8.ttf" id="2_oo0fn"]
 [ext_resource type="Script" uid="uid://dilvtn7awb516" path="res://scenes/test.gd" id="3_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://fqj6ncyxn0bc" path="res://assets/sprites/glassbottle.png" id="5_uo2fv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ysmq"]
 font = ExtResource("2_oo0fn")
@@ -41,3 +42,27 @@ offset_right = 239.656
 offset_bottom = 76.184
 text = "x 0"
 label_settings = SubResource("LabelSettings_5ysmq")
+
+[node name="bottlelabel" type="Label" parent="coinTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.288
+anchor_top = -1.056
+anchor_right = -1.288
+anchor_bottom = -1.056
+offset_left = 245.656
+offset_top = 49.184
+offset_right = 395.656
+offset_bottom = 74.184
+text = "x 0"
+label_settings = SubResource("LabelSettings_5ysmq")
+
+[node name="coinTexture2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 15.0
+offset_right = 222.0
+offset_bottom = 54.0
+texture = ExtResource("5_uo2fv")
+stretch_mode = 4
+script = ExtResource("3_6fi6k")

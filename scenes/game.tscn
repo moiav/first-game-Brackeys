@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bcr4u12yfvadr" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://ojxik7vql576" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://b6acxqyc08vuw" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://bglg5rruq2v0o" path="res://scenes/glassbottle.tscn" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bmosxs3yk5q3a" path="res://scenes/spawner.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dpt1p5vpvl853" path="res://scenes/ponton.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bglg5rruq2v0o" path="res://scenes/glassbottle.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -229,13 +229,19 @@ shadow_color = Color(0.00351917, 0.00351917, 0.00351917, 0)
 
 [node name="Game" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("1_0tnpc")]
-
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_gee14")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("1_0tnpc")]
+offset_top = -12.0
+offset_bottom = -12.0
+
+[node name="spawner" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-76, 32)
+scene_to_instanciate = ExtResource("12_dinhu")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(-1, 2)
@@ -345,9 +351,6 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="slime" parent="." instance=ExtResource("6_p57ef")]
 position = Vector2(131, -43)
 
-[node name="spawner" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(-76, 32)
-
 [node name="ponton" parent="." instance=ExtResource("11_kvpfn")]
 
 [node name="ponton2" parent="." instance=ExtResource("11_kvpfn")]
@@ -355,6 +358,3 @@ position = Vector2(-56, 2)
 
 [node name="ponton3" parent="." instance=ExtResource("11_kvpfn")]
 position = Vector2(-28, -2)
-
-[node name="glassbottle" parent="." instance=ExtResource("7_vtaks")]
-position = Vector2(-173, 81)

@@ -1,7 +1,5 @@
 extends Node2D
-@onready var game_manager = %GameManager
-
-@export var speed: float = 2.0  # Vitesse de déplacement (modifiable dans l'inspecteur)
+@export var speed: float = 10.0  # Vitesse de déplacement (modifiable dans l'inspecteur)
 
 
 func _process(delta):
@@ -9,5 +7,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	game_manager.add_point()
-	queue_free()
+	GameManager.add_bottle()
+	self.queue_free()

@@ -1,8 +1,8 @@
 extends Node2D
-
-@onready var bottle =preload("res://scenes/glassbottle.tscn")
-@export var x: int = -155
-@export var y: int = 50
+@onready var game_manager = %GameManager
+@export var scene_to_instanciate: PackedScene
+@export var x: int = 200
+@export var y: int = 0
 var nb: int
 
 func _ready():
@@ -12,10 +12,11 @@ func _ready():
 func spawn():
 	randomize()
 	nb =randi_range(-15,0)
-	print("Valeur du random :", nb) 
-	var obj =bottle.instantiate()
+	var game_node = get_tree().root.get_node("GameManager")  # à adapter selon ta hiérarchie
+	var obj =scene_to_instanciate.instantiate()
 	obj.position = Vector2(x+nb,y)
-	add_child(obj)
+	game_node.add_child(obj)
+
 
 
 func _on_timer_timeout():
